@@ -19,3 +19,28 @@ Route::get('index', [
     'as'    => 'trang-chu',
     'uses'  => 'PageController@index',
 ]);
+
+Route::get('product', [
+    'as'    =>  'product',
+    'uses'  =>  'ProductController@index',
+]);
+
+Route::get('productType/{type}', [
+    'as'    =>  'danh-sach',
+    'uses'  =>  'ProductController@getProductType',
+]);
+
+Route::get('about', [
+    'as'    =>  'gioi-thieu',
+    'uses'  =>  'PageController@getAbout',
+]);
+
+Route::get('contact', [
+    'as'    =>  'lien-he',
+    'uses'  =>  'PageController@getContact',
+]);
+
+Route::get('product-detail/{id}', [
+    'as'    =>  'chi-tiet-san-pham',
+    'uses'  =>  'ProductController@detailProduct',
+]);
