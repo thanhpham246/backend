@@ -109,79 +109,38 @@
                     <div class="space50">&nbsp;</div>
                     <div class="beta-products-list">
                         <h4>Seen Products</h4>
-                        @if ($seenData)
-                            <div class="row">
-                                @foreach($seenData as $item)
-                                    <div class="single-item col-sm-4" style="margin-bottom: 20px">
-                                        <div class="ribbon-wrappers">
-                                            @if($item['promotion_price'] > 0)
-                                                <div class="ribbon sale">Sale</div>
-                                            @endif
-                                        </div>
-                                        <div class="single-item-header">
-                                            <a href="{{route('chi-tiet-san-pham',$item['id'])}}"><img src="source/image/product/{{$item['image']}}" height="250px" alt=""></a>
-                                        </div>
-                                        <div class="single-item-body">
-                                            <p class="single-item-title">{{$item['name']}}</p>
-                                            <p class="single-item-price">
-                                                @if($item['promotion_price'] == 0)
-                                                    <span>{{number_format($item['unit_price'])}} đ</span>
-                                                @else
-                                                    <span class="flash-del">{{number_format($item['unit_price'])}} đ</span>
-                                                    <span class="flash-sale">{{number_format($item['promotion_price'])}} đ</span>
+                        <div class="row">
+                            <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel"  data-interval="1000">
+                                <div class="MultiCarousel-inner">
+                                    @foreach($seenData as $item)
+                                        <div class="single-item item col-sm-4">
+                                            <div class="ribbon-wrappers">
+                                                @if($item['promotion_price'] > 0)
+                                                    <div class="ribbon sale">Sale</div>
                                                 @endif
-                                            </p>
+                                            </div>
+                                            <div class="single-item-header">
+                                                <a href="{{route('chi-tiet-san-pham',$item['id'])}}"><img src="source/image/product/{{$item['image']}}" height="250px" alt=""></a>
+                                            </div>
+                                            <div class="single-item-body">
+                                                <p class="single-item-title">{{$item['name']}}</p>
+                                                <p class="single-item-price">
+                                                    @if($item['promotion_price'] == 0)
+                                                        <span>{{number_format($item['unit_price'])}} đ</span>
+                                                    @else
+                                                        <span class="flash-del">{{number_format($item['unit_price'])}} đ</span>
+                                                        <span class="flash-sale">{{number_format($item['promotion_price'])}} đ</span>
+                                                    @endif
+                                                </p>
+                                            </div>
                                         </div>
-                                        <div class="single-item-caption">
-                                            <a class="add-to-cart pull-left" href="shopping_cart.html"><i
-                                                        class="fa fa-shopping-cart"></i></a>
-                                            <a class="beta-btn primary" href="{{route('chi-tiet-san-pham',$item['id'])}}">Details <i
-                                                        class="fa fa-chevron-right"></i></a>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                @endforeach
+                                    @endforeach
+                                </div>
+                                <button class="btn btn-primary leftLst"><</button>
+                                <button class="btn btn-primary rightLst">></button>
                             </div>
-                        @else
-                            <div class="row">
-                                <div class="col-sm-12 alert alert-warning">Không có sản phẩm nào</div>
-                            </div>
-                        @endif
-                    </div> <!-- .beta-products-list -->
-
-                    {{--test--}}
-                    <div class="row">
-                        <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel"  data-interval="1000">
-                            <div class="MultiCarousel-inner">
-                                @foreach($seenData as $item)
-                                    <div class="single-item item col-sm-4">
-                                        <div class="ribbon-wrappers">
-                                            @if($item['promotion_price'] > 0)
-                                                <div class="ribbon sale">Sale</div>
-                                            @endif
-                                        </div>
-                                        <div class="single-item-header">
-                                            <a href="{{route('chi-tiet-san-pham',$item['id'])}}"><img src="source/image/product/{{$item['image']}}" height="250px" alt=""></a>
-                                        </div>
-                                        <div class="single-item-body">
-                                            <p class="single-item-title">{{$item['name']}}</p>
-                                            <p class="single-item-price">
-                                                @if($item['promotion_price'] == 0)
-                                                    <span>{{number_format($item['unit_price'])}} đ</span>
-                                                @else
-                                                    <span class="flash-del">{{number_format($item['unit_price'])}} đ</span>
-                                                    <span class="flash-sale">{{number_format($item['promotion_price'])}} đ</span>
-                                                @endif
-                                            </p>
-                                        </div>
-                                    </div>
-                                @endforeach
-                            </div>
-                            <button class="btn btn-primary leftLst"><</button>
-                            <button class="btn btn-primary rightLst">></button>
                         </div>
-                    </div>
-                    {{--end test--}}
+                    </div> <!-- .beta-products-list -->
                 </div>
                 <div class="col-sm-3 aside">
                     <div class="widget">
