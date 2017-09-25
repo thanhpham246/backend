@@ -56,7 +56,7 @@
                                         @endif
                                     </div>
                                     <div class="single-item-header">
-                                        <a href="product.html"><img src="source/image/product/{{$item->image}}" height="250" alt=""></a>
+                                        <a href="{{route('chi-tiet-san-pham',$item->id)}}"><img src="source/image/product/{{$item->image}}" height="250" alt=""></a>
                                     </div>
                                     <div class="single-item-body">
                                         <p class="single-item-title">{{$item->name}}</p>
@@ -70,9 +70,9 @@
                                         </p>
                                     </div>
                                     <div class="single-item-caption">
-                                        <a class="add-to-cart pull-left" href="shopping_cart.html"><i
+                                        <a class="add-to-cart pull-left" href="{{route('them-gio-hang',$item->id)}}"><i
                                                     class="fa fa-shopping-cart"></i></a>
-                                        <a class="beta-btn primary" href="product.html">Details <i
+                                        <a class="beta-btn primary" href="{{route('chi-tiet-san-pham',$item->id)}}">Details <i
                                                     class="fa fa-chevron-right"></i></a>
                                         <div class="clearfix"></div>
                                     </div>
@@ -99,23 +99,23 @@
                                 </div>
 
                                 <div class="single-item-header">
-                                    <a href="product.html"><img src="source/image/product/{{$pro->image}}" height="250px" alt=""></a>
+                                    <a href="{{route('chi-tiet-san-pham',$pro->id)}}"><img src="source/image/product/{{$pro->image}}" height="250px" alt=""></a>
                                 </div>
                                 <div class="single-item-body">
-                                    <p class="single-item-title">{{$item->name}}</p>
+                                    <p class="single-item-title">{{$pro->name}}</p>
                                     <p class="single-item-price">
-                                        @if($item->promotion_price == 0)
-                                            <span>{{number_format($item->unit_price)}} đ</span>
+                                        @if($pro->promotion_price == 0)
+                                            <span>{{number_format($pro->unit_price)}} đ</span>
                                         @else
-                                            <span class="flash-del">{{number_format($item->unit_price)}} đ</span>
-                                            <span class="flash-sale">{{number_format($item->promotion_price)}} đ</span>
+                                            <span class="flash-del">{{number_format($pro->unit_price)}} đ</span>
+                                            <span class="flash-sale">{{number_format($pro->promotion_price)}} đ</span>
                                         @endif
                                     </p>
                                 </div>
                                 <div class="single-item-caption">
-                                    <a class="add-to-cart pull-left" href="shopping_cart.html"><i
+                                    <a class="add-to-cart pull-left" href="{{route('them-gio-hang',$pro->id)}}"><i
                                                 class="fa fa-shopping-cart"></i></a>
-                                    <a class="beta-btn primary" href="product.html">Details <i
+                                    <a class="beta-btn primary" href="{{route('chi-tiet-san-pham',$pro->id)}}">Details <i
                                                 class="fa fa-chevron-right"></i></a>
                                     <div class="clearfix"></div>
                                 </div>

@@ -44,3 +44,8 @@ Route::get('product-detail/{id}', [
     'as'    =>  'chi-tiet-san-pham',
     'uses'  =>  'ProductController@detailProduct',
 ]);
+
+Route::get('add-to-cart/{id}',[
+    'as' => 'them-gio-hang',
+    'uses' => 'CartController@addToCart',
+]);

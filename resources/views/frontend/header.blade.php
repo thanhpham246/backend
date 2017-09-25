@@ -33,51 +33,33 @@
 
                 <div class="beta-comp">
                     <div class="cart">
-                        <div class="beta-select"><i class="fa fa-shopping-cart"></i> Giỏ hàng (Trống) <i class="fa fa-chevron-down"></i></div>
-                        <div class="beta-dropdown cart-body">
-                            <div class="cart-item">
-                                <div class="media">
-                                    <a class="pull-left" href="#"><img src="source/assets/dest/images/products/cart/1.png" alt=""></a>
-                                    <div class="media-body">
-                                        <span class="cart-item-title">Sample Woman Top</span>
-                                        <span class="cart-item-options">Size: XS; Colar: Navy</span>
-                                        <span class="cart-item-amount">1*<span>$49.50</span></span>
+                        <div class="beta-select"><i class="fa fa-shopping-cart"></i> @if (Session::has('carts'))
+                                Có {{$totalQty}} sản phẩm  <i class="fa fa-chevron-down"></i>@else Giỏ hàng (Trống)
+                            @endif </div>
+                        @if (Session::has('carts'))
+                            <div class="beta-dropdown cart-body">
+                                @foreach($product_cart as $item)
+                                    <div class="cart-item">
+                                        <div class="media">
+                                            <a class="pull-left" href="#"><img src="source/image/product/{{$item['item']['image']}}" alt=""></a>
+                                            <div class="media-body">
+                                                <span class="cart-item-title">{{$item['item']['name']}}</span>
+                                                <span class="cart-item-amount">{{$item['qty']}}*<span>@if ($item['item']['promotion_price'] > 0) {{number_format($item['item']['promotion_price'])}} @else {{number_format($item['item']['unit_price'])}} @endif</span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                                <div class="cart-caption">
+                                    <div class="cart-total text-right">Tổng tiền: <span class="cart-total-value">{{number_format($totalPrice)}} đ</span></div>
+                                    <div class="clearfix"></div>
+
+                                    <div class="center">
+                                        <div class="space10">&nbsp;</div>
+                                        <a href="checkout.html" class="beta-btn primary text-center">Đặt hàng <i class="fa fa-chevron-right"></i></a>
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="cart-item">
-                                <div class="media">
-                                    <a class="pull-left" href="#"><img src="source/assets/dest/images/products/cart/2.png" alt=""></a>
-                                    <div class="media-body">
-                                        <span class="cart-item-title">Sample Woman Top</span>
-                                        <span class="cart-item-options">Size: XS; Colar: Navy</span>
-                                        <span class="cart-item-amount">1*<span>$49.50</span></span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="cart-item">
-                                <div class="media">
-                                    <a class="pull-left" href="#"><img src="source/assets/dest/images/products/cart/3.png" alt=""></a>
-                                    <div class="media-body">
-                                        <span class="cart-item-title">Sample Woman Top</span>
-                                        <span class="cart-item-options">Size: XS; Colar: Navy</span>
-                                        <span class="cart-item-amount">1*<span>$49.50</span></span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="cart-caption">
-                                <div class="cart-total text-right">Tổng tiền: <span class="cart-total-value">$34.55</span></div>
-                                <div class="clearfix"></div>
-
-                                <div class="center">
-                                    <div class="space10">&nbsp;</div>
-                                    <a href="checkout.html" class="beta-btn primary text-center">Đặt hàng <i class="fa fa-chevron-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                        @endif
                     </div> <!-- .cart -->
                 </div>
             </div>

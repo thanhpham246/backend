@@ -1576,7 +1576,8 @@ ul.sub-menu ul.sub-menu li:hover>a,ul.children ul.children li:hover>a {
     background:#fff;
     border:1px solid #e1e1e1;
     padding:0 10px 10px;
-    cursor:default
+    cursor:default;
+    width: 300px;
 }
 
 .cart-item {
